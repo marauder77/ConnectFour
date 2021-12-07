@@ -1,36 +1,26 @@
-/** Connect Four
- *
- * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
- * column until a player gets four-in-a-row (horiz, vert, or diag) or until
- * board fills (tie)
- */
 
 const WIDTH = 7;
 const HEIGHT = 6;
-
-const currPlayer = 1; // active player: 1 or 2
+let currPlayer = 1; // active player: 1 or 2
 const board = []; // array of rows, each row is array of cells  (board[y][x])
 
-/** makeBoard: create in-JS board structure:
- *    board = array of rows, each row is array of cells  (board[y][x])
- */
+
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  // TODO: set "board" to empty HEIGHT x WIDTH matrix array, added NULL to push()
   for(let y = 0; y < HEIGHT; y++) {
     const newArr = []
     board.push(newArr);
     for(let x=0; x < WIDTH; x++){
-      newArr.push()
+      newArr.push(null)
     }
   }
 }
 
-/** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
-const htmlBoard = document.querySelector("board")
+const htmlBoard = document.getElementById("board")
   // TODO: add comment for this code
   //creates a top row and sets the ID to topRow
   let top = document.createElement("tr");
@@ -61,7 +51,6 @@ const htmlBoard = document.querySelector("board")
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 0
   for (let y = HEIGHT -1; y >= 0; y--){
     if(board[y][x] === null) {
       return y;
@@ -80,7 +69,6 @@ function placeInTable(y, x) {
   piece.classList.add('piece');
   piece.classList.add(`p${currPlayer}`)
   spot.append(piece);
-  piece.style.top =; -50 * (y + 2);
 }
 
 
@@ -117,9 +105,8 @@ function handleClick(evt) {
   // TODO: check if all cells in board are filled; if so call, call endGame
 
   // switch players
-  function switchPlayer() {
     currPlayer = currPlayer === 1 ? 2 : 1
-  }
+  
   // TODO: switch currPlayer 1 <-> 2
 
 }
