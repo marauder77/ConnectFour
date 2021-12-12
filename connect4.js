@@ -76,7 +76,7 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  alert('Game Over!')
+  alert(msg)
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -98,7 +98,10 @@ function handleClick(evt) {
   placeInTable(y, x);
   // check for win
   if (checkForWin()) {
-    return endGame (`Player $(currPlayer) won!`)
+    return endGame (`Player ${currPlayer} won!`)
+  }
+  if (board.every((arr) => arr.every((val) => val))) {
+    return endGame("It's a tie!")
   }
 
   // check for tie
