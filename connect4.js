@@ -76,7 +76,7 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  alert("Game over!")
+  alert('Game Over!')
 }
 
 /** handleClick: handle click of column top to play piece */
